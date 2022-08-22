@@ -1,0 +1,38 @@
+@font-face {
+  font-family: face;
+  src: url('./assets/Norse-Bold.otf');
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 1px solid crimson;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+fieldset {
+  border: none;
+}
+
+.container {
+  display: flex;
+}
+
+.col:first-of-type {
+  width: 40%;
+}
+
+.col:first-of-type img {
+  object-fit: fill;
+}
+
+.row {
+  display: flex;
+}
