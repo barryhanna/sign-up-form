@@ -8,7 +8,7 @@
 	<title>Odin Project - Sign-up Form Project</title>
 </head>
 <body>
-	<div class="container">
+	
 		<div class="col brand-col">
 			<div class="heading">
 				<img class="logo" src="./assets/odin-lined.png">
@@ -16,48 +16,51 @@
 			</div>
 			<p class="photo-attribution">Photo by <a href="#">Halie West</a> on <a href="https://unsplash.it">Unsplash</a></p>
 		</div>
+		
 		<div class="col content">
-			<p>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams.</p>
-			<p>You <em>know</em> you want to.</p>
-			<form>
-				<h2>Let's do this!</h2>
-				<div class="row">
-					<fieldset>
-						<label for="fname">First Name</label>
-						<input type="text" id="fname" placeholder="Odin">
+				<div class="intro-section flow">
+					<p>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams.</p>
+					<p>You <em>know</em> you want to.</p>
+				</div>
+				<form>
+					<h2>Let's do this!</h2>
+					<div class="row">
+						<fieldset>
+							<label for="fname">First Name</label>
+							<input type="text" id="fname" placeholder="Odin" required>
 						</fieldset>
 						<fieldset>
 							<label for="fname">Last Name</label>
-							<input type="text" id="lname" placeholder="Norse">
+							<input type="text" id="lname" placeholder="Project" required>
 						</fieldset>
-				</div>
-
-				<div class="row">
-					<fieldset>
-						<label for="email">Email</label>
-						<input type="email" id="email" placeholder="odin@odinproject.com">
-					</fieldset>
-					<fieldset>
-						<label for="phone">Phone Number</label>
-						<input type="tel" id="phone" placeholder="0891505050">
-					</fieldset>
-				</div>
-
-				<div class="row">
-					<fieldset>
-						<label for="password">Password</label>
-						<input type="password" id="password">
-					</fieldset>
-					<fieldset>
-						<label for="passwordConfirm">Confirm Password</label>
-						<input type="password" id="passwordConfirm">
-					</fieldset>
-				</div>
-
-				<button type="submit">Create Account</button>
-				<p>Already have an account? <a href="#">Log in</a></p>
-			</form>
-		</div>
-	</div>
+					</div>
+					<div class="row">
+						<fieldset>
+							<label for="email">Email</label>
+							<input type="email" id="email" placeholder="odin@odinproject.com" required>
+						</fieldset>
+						<fieldset>
+							<label for="phone">Phone Number</label>
+							<input type="tel" id="phone" placeholder="01222 555 555" required pattern='^((\(?0\d{4}\)?\s?\d{3}\s?\d{3})|(\(?0\d{3}\)?\s?\d{3}\s?\d{4})|(\(?0\d{2}\)?\s?\d{4}\s?\d{4}))(\s?\#(\d{4}|\d{3}))?$'>
+				
+						</fieldset>
+					</div>
+					<div class="row">
+						<fieldset>
+							<label for="password">Password</label>
+							<input type="password" id="password" required>
+						</fieldset>
+						<fieldset>
+							<label for="passwordConfirm">Confirm Password</label>
+							<input type="password" id="passwordConfirm" required>
+						</fieldset>
+					</div>
+					<div class="actions">
+						<button type="submit">Create Account</button>
+						<p>Already have an account? <a href="#">Log in</a></p>
+					</div>
+				</form>
+			</div>
+		
 </body>
 </html>

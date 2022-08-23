@@ -3,6 +3,81 @@
   src: url('./assets/Norse-Bold.otf');
 }
 
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 *,
 *::after,
 *::before {
@@ -13,10 +88,20 @@
 }
 
 :root {
-  --clr-button: #596d48;
+  --clr-primary: #596d48;
+
+  --clr-button: var(--clr-primary);
   --clr-input-border: #e5e7eb;
+  --clr-background: #f9fafb;
+  --clr-label: #363b41;
+  --clr-error: #c77777;
+  --clr-focus: #7483df;
+  --clr-valid: var(--clr-primary);
+  --clr-text: #080a0e;
 
   --left-col-width: 45vw;
+
+  --gutter: 2rem;
 }
 
 html {
@@ -29,6 +114,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
     helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
     sans-serif;
+  color: var(--clr-text);
+  line-height: 1.5;
 }
 
 img {
@@ -46,11 +133,23 @@ h1 {
 
 .container {
   display: flex;
+  flex-direction: column;
+  margin: 0 auto;
 }
 
 .col:first-of-type {
   position: relative;
   width: var(--left-col-width, 50vw);
+}
+
+.col:last-of-type {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: calc(100vw - var(--left-col-width));
+  gap: 4rem;
+  padding: var(--gutter);
+  background-color: var(--clr-background, #eee);
 }
 
 .brand-col {
@@ -94,4 +193,106 @@ h1 {
 
 .row {
   display: flex;
+  gap: 1em;
+}
+
+.intro-section > p {
+  font-weight: normal;
+  font-size: 1.25rem;
+  max-width: 40ch;
+}
+
+form {
+  position: relative;
+  background-color: #fff;
+  margin-left: calc(var(--gutter) * -1);
+  margin-right: calc(var(--gutter) * -1);
+  padding: var(--gutter);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+form > div {
+  display: grid;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+label {
+  font-size: 0.8rem;
+  font-weight: bold;
+  font-size: 0.7rem;
+  color: var(--clr-label);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.2em;
+  opacity: 0.7;
+}
+
+input {
+  --border-color: var(--clr-input-border);
+  font-size: 1.1rem;
+  border: 1px solid var(--border-color);
+  padding-block: 0.5em;
+  padding-inline: 0.5em;
+  border-radius: 5px;
+}
+
+input:focus {
+  --border-color: var(--clr-focus);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+input::placeholder {
+  opacity: 0.25;
+}
+
+input:invalid {
+  --border-color: var(--clr-error);
+}
+
+input:valid {
+  --border-color: var(--clr-valid);
+}
+
+button[type='submit'] {
+  background-color: var(--clr-button);
+  color: #fff;
+  font-weight: bold;
+  padding: 1em 2em;
+  margin-top: 3rem;
+  font-family: inherit;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+form .actions {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  transform: translateY(15%);
+}
+
+form:invalid button {
+  opacity: 0.3;
+}
+
+form h2,
+form .row {
+  margin-bottom: 1em;
+}
+
+.actions a {
+  color: var(--clr-button);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.flow > * + * {
+  margin-top: 1em;
 }
