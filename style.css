@@ -1,5 +1,5 @@
 @font-face {
-  font-family: face;
+  font-family: Norse;
   src: url('./assets/Norse-Bold.otf');
 }
 
@@ -9,7 +9,26 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  outline: 1px solid crimson;
+  /* outline: 1px solid crimson; */
+}
+
+:root {
+  --clr-button: #596d48;
+  --clr-input-border: #e5e7eb;
+
+  --left-col-width: 45vw;
+}
+
+html {
+  height: 100vh;
+}
+
+body {
+  display: flex;
+  min-height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
+    helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
+    sans-serif;
 }
 
 img {
@@ -21,16 +40,56 @@ fieldset {
   border: none;
 }
 
+h1 {
+  font-size: 4.5rem;
+}
+
 .container {
   display: flex;
 }
 
 .col:first-of-type {
-  width: 40%;
+  position: relative;
+  width: var(--left-col-width, 50vw);
 }
 
-.col:first-of-type img {
-  object-fit: fill;
+.brand-col {
+  background-image: url('./assets/halie-west-25xggax4bSA-unsplash.jpg');
+  background-size: cover;
+  color: white;
+  display: grid;
+  width: 100%;
+  place-content: center;
+}
+
+.heading {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  gap: 1em;
+  padding: 1em;
+  width: var(--left-col-width, 50vw);
+  justify-content: center;
+  align-items: center;
+  font-family: Norse, serif;
+  text-align: center;
+}
+
+.logo {
+  width: 95px;
+  height: 127px;
+}
+
+.photo-attribution {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  width: max-content;
+  transform: translateX(-50%);
+}
+
+.photo-attribution a {
+  color: currentColor;
+  text-underline-offset: 3px;
 }
 
 .row {
