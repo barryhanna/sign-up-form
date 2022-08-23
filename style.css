@@ -254,6 +254,15 @@ input:invalid {
   --border-color: var(--clr-error);
 }
 
+input.invalid {
+  --border-color: var(--clr-error);
+}
+
+fieldset:has(input[type='password'])::after {
+  content: '* Passwords do not match';
+  background-color: blue;
+}
+
 input:valid {
   --border-color: var(--clr-valid);
 }
@@ -268,6 +277,7 @@ button[type='submit'] {
   border: none;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
 }
 
 form .actions {
@@ -295,4 +305,9 @@ form .row {
 
 .flow > * + * {
   margin-top: 1em;
+}
+
+.error {
+  color: var(--clr-error);
+  font-size: 0.8rem;
 }
